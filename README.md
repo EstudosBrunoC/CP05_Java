@@ -1,6 +1,6 @@
 # Introdução
 
-## Essa API REST terá como objetivo a criação e gerenciamento de decks de Magic: The Gathering (MTG).
+## Essa API REST terá como objetivo a criação e gerenciamento de decks de Magic: The Gathering (MTG). Ela fornece funcionalidades como listar, buscar por id, criar, listar todos, listar por id, atualizar ou deletaralgo em específico.
 
 # Rotas da API
 | Método | Rota                     | Descrição                       | Status Codes |
@@ -25,3 +25,76 @@
 | DELETE | /cartas/{id}                   | Remover uma carta                       | 204, 404, 500 |
 | DELETE | /usuarios{id}              | Reover um usuário                       | 204, 404, 500 |
 | DELETE | /decks{id}                     | Remover um deck                       | 204, 404, 500 |
+
+# DTOs e Modelos de Dados
+## Decks:
+```json
+DeckDTO {
+  "id": integer,
+  "nome": string,
+  "formato": string,
+  "descricao": string,
+  "cartas": [
+    {
+      "id": integer,
+      "nome": string,
+      "tipo": string,
+      "Descrição": string,
+      "Cor": string,
+      "custoMana": string,
+      "quantidade": integer
+      "dataCriacao": string
+    }
+  ],
+ "comentarios": [
+    {
+      "id": integer,
+      "conteudo": string,
+    }
+  ],
+  "dataCriacao": string
+}
+```
+
+## Cartas:
+```json
+CartaDTO {
+  "id": integer,
+  "nome": string,
+  "tipo": string,
+  "Descrição": string,
+  "Cor": string,
+  "custoMana": string,
+  "quantidade": integer
+  "dataCriacao": string
+}
+```
+
+## Usuarios:
+```json
+  "id": int,
+  "nome": string,
+  "email": string,
+  "senha": string,
+  "dataCadastro": string
+   "cartas": [
+    {
+      "id": integer,
+      "nome": string,
+      "tipo": string,
+      "cor": string,
+      "custoMana": string,
+      "quantidade": integer
+    }
+  ],
+  "decks": [
+      {
+        "id": integer,
+        "nome": string,
+        "formato": string,
+        "descricao": string,
+        "dataCriacao": string
+      }
+      ],
+}
+```
